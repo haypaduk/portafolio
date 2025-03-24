@@ -1,0 +1,317 @@
+/* Desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+}
+
+/* Video de fondo */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el video para cubrir toda la pantalla */
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+/* Contenido de la página de inicio */
+.content {
+    position: relative;
+    z-index: 1; /* Coloca el contenido por encima del video */
+    color: white;
+    display: flex;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    flex-direction: column;
+    height: 100vh; /*Centrar el boton y texto en dio de la pantalla completa*/
+}
+
+/* Botón "Ver Portafolio" con efecto LED */
+.btn-portfolio {
+    padding: 10px 20px;
+    background-color: transparent; /* Fondo transparente */
+    color: rgb(255, 255, 255); /* Letras negras */
+    border: 2px solid #00aaff; /* Borde azul LED */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+/* Efecto de brillo LED en el borde */
+.btn-portfolio::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 40px #00aaff;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+/* Efecto LED activo */
+    box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 40px #00aaff;
+}
+
+/* Hover: Botón iluminado */
+.btn-portfolio:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff;
+}
+
+.header-logo {
+    width: 80px;
+    height: auto;
+    display: inline-block;
+    margin-left: 10px; /* Ajusta el margen izquierdo */
+}
+
+/* Encabezado */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+}
+
+/* Texto LED Mejorado */
+.led-glow {
+    font-size: 24px;
+    color: gold;
+    text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold;
+    animation: glow-gold 1.5s infinite alternate;
+}
+
+/* Menú de navegación */
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-nav a:hover {
+    color: black;
+}
+
+/* Secciones */
+section {
+    padding: 20px;
+    margin: 20px;
+    text-align: left;
+    border: 3px solid gold;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 60%;
+}
+
+/* Animación de desvanecimiento */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efectos LED para los títulos */
+.led-blue {
+    color: #00bfff;
+    text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff;
+    animation: glow-blue 2s infinite alternate;
+}
+
+.led-red {
+    color: #ff4444;
+    text-shadow: 0 0 5px #ff4444, 0 0 10px #ff4444, 0 0 15px #ff4444;
+    animation: glow-red 2.5s infinite alternate;
+}
+
+.led-purple {
+    color: #b266ff;
+    text-shadow: 0 0 5px #b266ff, 0 0 10px #b266ff, 0 0 15px #b266ff;
+    animation: glow-purple 3s infinite alternate;
+}
+
+.led-green {
+    color: #00ff66;
+    text-shadow: 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 15px #00ff66;
+    animation: glow-green 3.5s infinite alternate;
+}
+
+/* Animaciones */
+@keyframes glow-gold {
+    from { text-shadow: 0 0 5px gold, 0 0 10px gold; }
+    to { text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold; }
+}
+
+@keyframes glow-blue {
+    from { text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff; }
+    to { text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff; }
+}
+
+@keyframes glow-red {
+    from { text-shadow: 0 0 5px #ff4444, 0 0 10px #ff4444; }
+    to { text-shadow: 0 0 10px #ff4444, 0 0 20px #ff4444, 0 0 30px #ff4444; }
+}
+
+@keyframes glow-purple {
+    from { text-shadow: 0 0 5px #b266ff, 0 0 10px #b266ff; }
+    to { text-shadow: 0 0 10px #b266ff, 0 0 20px #b266ff, 0 0 30px #b266ff; }
+}
+
+@keyframes glow-green {
+    from { text-shadow: 0 0 5px #00ff66, 0 0 10px #00ff66; }
+    to { text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66, 0 0 30px #00ff66; }
+}
+
+/* Bordes LED para las secciones */
+.sobre-mi { border-color: #00bfff; } /* Azul */
+.habilidades { border-color: #ff4444; } /* Rojo */
+.portafolio { border-color: #b266ff; } /* Morado */
+.contacto { border-color: #00ff66; } /* Verde */
+
+/* Estilos del botón de contacto */
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #ffffff;
+}
+
+/* Texto del botón */
+.button-text {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Contenedor de la animación */
+.animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Fondo de la carretera */
+.road-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    animation: moveRoad 2s linear infinite;
+}
+
+/* Coche */
+.car {
+    position: absolute;
+    bottom: 5px;
+    left: -40px;
+    width: 40px;
+    height: 20px;
+    fill: #ff5722;
+    animation: moveCar 2s linear infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Mensaje "Dirección encontrada" */
+.complete-order {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+/* Animación de la carretera */
+@keyframes moveRoad {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Animación del coche */
+@keyframes moveCar {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(100% + 40px)); }
+}
+
+/* Estado activo del botón */
+.contact-button.active .button-text {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.contact-button.active .animation-container {
+    opacity: 1;
+}
+
+.contact-button.active .complete-order {
+    opacity: 1;
+}
+
+/* Estilo para los enlaces del portafolio */
+.portfolio-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.portfolio-link {
+    color: #FFD700;  /* Color dorado */
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.portfolio-link:hover {
+    color: #000;
+    background-color: #FFD700;
+    border-color: #FFD700;
+}
